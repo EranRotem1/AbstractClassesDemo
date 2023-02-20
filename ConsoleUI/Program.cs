@@ -14,7 +14,7 @@ namespace ConsoleUI
              * Todo follow all comments!! 
              */
 
-            #region Vehicles
+            #region Vehicles 
 
             /*
              * Create an abstract class called Vehicle
@@ -38,16 +38,33 @@ namespace ConsoleUI
              * 
              * Set the properties with object initializer syntax
              */
+            List<Vehicle> vehicles = new List<Vehicle>();
+
+            Car car1 = new Car() { Year = 2005, Make = "Subaru", Model = "Outback"};
+            Motorcycle motorcycle1 = new Motorcycle() { Year = 2018, Make = "Chevy", Model = "BigFast!"}; 
+            Vehicle car2 = new Car() { Year = 2014, Make = "Toyota"};
+            Vehicle motorcycle2 = new Motorcycle() { Year = 2020, Make = "porche"};
+
+            vehicles.Add(car1);
+            vehicles.Add(car2);
+            vehicles.Add(motorcycle1);
+            vehicles.Add(motorcycle2);
 
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
-
+            foreach (var vehicle in vehicles) 
+            {
+                Console.WriteLine($"{vehicle.Year} {vehicle.Make} {vehicle.Model}");
+            }
             // Call each of the drive methods for one car and one motorcycle
+            car1.DriveAbstract();
+            car1.DriveVirtual();
 
+            motorcycle1.DriveAbstract();
+            motorcycle1.DriveVirtual();
             #endregion            
-            Console.ReadLine();
         }
     }
 }
